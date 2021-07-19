@@ -18,9 +18,9 @@ mod tests {
     use super::*;
 
     #[test]
-    fn transforms_letters_to_elder_futhark() {
-        let content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᚢᚢᛟᚦ";
+    fn transforms_letters_to_medieval_futhork() {
+        let content = "aábcdðeéfghiíjklmnoóǫpqrstuúvwxyýzåäæœöøþ ";
+        let expected = "ᛆᛆᛒᚴᚦᚦᚽᚽᚠᚵᚼᛁᛁᛁᚴᛚᛘᚿᚮᚮᚰᛕᚴᚱᛋᛏᚢᚢᚠᚠᛋᛦᛦᛋᚮᛅᛅᚯᚯᚯᚦ:";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);
@@ -28,11 +28,12 @@ mod tests {
 
     #[test]
     fn transforms_runes_to_letters() {
-        let content = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚻᚾᛁᛃᛇᛈᛉᛊᛋᛏᛒᛖᛗᛚᛜᛝᛟᛞ:";
-        let expected = "fuþarkgwhhnijïpzsstbemlŋŋod ";
+        let content = "ᚠᚢᚦᚮᚱᚴᚼᚿᛁᛆᛌᛋᛐᛏᛒᛘᛚᛦᚯᛅᚰᛕᚽ:";
+        let expected = "fuþorkhniassttbmlyøæǫᴘe ";
         let result = runes_to_letters(content);
 
         assert_eq!(result, expected);
     }
 }
+
 
