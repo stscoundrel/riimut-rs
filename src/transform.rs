@@ -11,18 +11,18 @@ pub fn with_dictionary(content: &str, dictionary: &Dictionary) -> String {
             Dictionary::LetterDefinitions(mapping) => {
                 if mapping.contains_key(&lower_case) {
                     result.push(*mapping.get(&lower_case).unwrap());
-                } else {
-                    result.push(character);
+                    continue;
                 }
             },
             Dictionary::MultipleLetterDefinitions(mapping) => {
                 if mapping.contains_key(&lower_case) {
                     result.push_str(*mapping.get(&lower_case).unwrap());
-                } else {
-                    result.push(character);
+                    continue;
                 }
             }
         }
+
+        result.push(character);
     }    
 
     result
