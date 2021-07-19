@@ -1,6 +1,7 @@
 use riimut::younger_futhark;
 use riimut::elder_futhark;
 use riimut::medieval_futhork;
+use riimut::futhorc;
 
 #[test]
 fn parses_to_younger_futhark() {
@@ -59,6 +60,26 @@ fn parses_medieval_futhork_to_text() {
     let content = "ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:ᛁ:ᚼᛁᛘᛚᚢᛘ:ᚼᛆᛚᚵᛆᚦ:ᚠᛆᚱᚦᚽ:ᚦᛁᛏ:ᚿᛆᛘᛆ";
     let expected = "faþer uor som ast i himlum halgaþ farþe þit nama"; // Wont tell apart eth & thorn in mid sentence.
     let result = medieval_futhork::runes_to_letters(content);
+
+    assert_eq!(result, expected);    
+}
+
+#[test]
+fn parses_to_anglo_frisian_futhorc() {
+    // From 8th century Franks Casket, in late West Saxon.
+    let content = "fisc.flodu.ahofonferg | enberig |";
+    let expected = "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|";
+    let result = futhorc::letters_to_runes(content);
+
+    assert_eq!(result, expected);    
+}
+
+#[test]
+fn parses_anglo_frisian_futhorc_to_text() {
+    // From 8th century Franks Casket, in late West Saxon.
+    let content = "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|";
+    let expected = "fisc.flodu.ahofonferg | enberig |";
+    let result = futhorc::runes_to_letters(content);
 
     assert_eq!(result, expected);    
 }
