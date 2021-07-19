@@ -7,6 +7,12 @@ pub fn letters_to_runes(content: &str) -> String {
     transform::transform(&content, &letter_map)
 }
 
+pub fn runes_to_letters(content: &str) -> String {
+    let rune_map = mapping::get_runes_to_letters_map();
+    
+    transform::transform(&content, &rune_map)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,10 +27,10 @@ mod tests {
     }
 
     #[test]
-    fn transforms_full_sentence() {
-        let content = "auk tani karþi kristna";
-        let expected = "ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ";
-        let result = letters_to_runes(content);
+    fn transforms_runes_to_letters() {
+        let content = "ᚠᚢᚦᚬᚱᚴᚼᚽᚾᚿᛁᛅᛆᛋᛌᛏᛐᛒᛘᛚᛦ:";
+        let expected = "fuþorkhhnniaassttbmlR ";
+        let result = runes_to_letters(content);
 
         assert_eq!(result, expected);
     }

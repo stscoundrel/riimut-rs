@@ -51,3 +51,32 @@ pub fn get_letters_to_runes_map() -> HashMap<char, char> {
 
     letter_mapping
 }
+
+pub fn get_runes_to_letters_map() -> HashMap<char, char> {
+    let mut rune_mapping = HashMap::new();
+
+    rune_mapping.insert('ᚠ', 'f');
+    rune_mapping.insert('ᚢ', 'u');
+    rune_mapping.insert('ᚦ', 'þ');
+    rune_mapping.insert('ᚬ', 'o');
+    rune_mapping.insert('ᚱ', 'r');
+    rune_mapping.insert('ᚴ', 'k');
+    rune_mapping.insert('ᚼ', 'h');
+    rune_mapping.insert('ᚽ', 'h');
+    rune_mapping.insert('ᚾ', 'n');
+    rune_mapping.insert('ᚿ', 'n');
+    rune_mapping.insert('ᛁ', 'i');
+    rune_mapping.insert('ᛅ', 'a');
+    rune_mapping.insert('ᛆ', 'a');
+    rune_mapping.insert('ᛋ', 's');
+    rune_mapping.insert('ᛌ', 's');
+    rune_mapping.insert('ᛏ', 't');
+    rune_mapping.insert('ᛐ', 't');
+    rune_mapping.insert('ᛒ', 'b');
+    rune_mapping.insert('ᛘ', 'm');
+    rune_mapping.insert('ᛚ', 'l');
+    rune_mapping.insert('ᛦ', 'R');
+    rune_mapping.insert(':', ' ');
+
+    rune_mapping
+}
