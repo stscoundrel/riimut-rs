@@ -20,7 +20,7 @@ mod tests {
     #[test]
     fn transforms_letters_to_medieval_futhork() {
         let content = "aábcdðeéfghiíjklmnoóǫpqrstuúvwxyýzåäæœöøþ ";
-        let expected = "ᛆᛆᛒᚴᚦᚦᛁᛁᚠᚵᚼᛁᛁᛁᚴᛚᛘᚿᚮᚮᚰᛕᚴᚱᛋᛏᚢᚢᚠᚠᛋᛦᛦᛋᚮᛅᛅᚯᚯᚯᚦ:";
+        let expected = "ᛆᛆᛒᚴᚦᚦᚽᚽᚠᚵᚼᛁᛁᛁᚴᛚᛘᚿᚮᚮᚰᛕᚴᚱᛋᛏᚢᚢᚠᚠᛋᛦᛦᛋᚮᛅᛅᚯᚯᚯᚦ:";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);
@@ -28,11 +28,9 @@ mod tests {
 
     #[test]
     fn transforms_runes_to_letters() {
-        let content = "ᚠᚢᚦᚮᚱᚴᚼᚿᛁᛆᛌᛋᛐᛏᛒᛘᛚᛦᚯᛅᚰᛕ:";
-        let expected = "fuþorkhniassttbmlyøæǫᴘ ";
+        let content = "ᚠᚢᚦᚮᚱᚴᚼᚿᛁᛆᛌᛋᛐᛏᛒᛘᛚᛦᚯᛅᚰᛕᚽ:";
+        let expected = "fuþorkhniassttbmlyøæǫᴘe ";
         let result = runes_to_letters(content);
-
-        println!("{}", result);
 
         assert_eq!(result, expected);
     }

@@ -9,8 +9,8 @@ pub fn get_letters_to_runes_map() -> HashMap<char, char> {
     letter_mapping.insert('c', 'ᚴ');
     letter_mapping.insert('d', 'ᚦ');
     letter_mapping.insert('ð', 'ᚦ');
-    letter_mapping.insert('e', 'ᛁ');
-    letter_mapping.insert('é', 'ᛁ');
+    letter_mapping.insert('e', 'ᚽ');
+    letter_mapping.insert('é', 'ᚽ');
     letter_mapping.insert('f', 'ᚠ');
     letter_mapping.insert('g', 'ᚵ');
     letter_mapping.insert('h', 'ᚼ');
@@ -31,6 +31,7 @@ pub fn get_letters_to_runes_map() -> HashMap<char, char> {
     letter_mapping.insert('t', 'ᛏ');
     letter_mapping.insert('u', 'ᚢ');
     letter_mapping.insert('ú', 'ᚢ');
+    letter_mapping.insert('ü', 'ᚢ');
     letter_mapping.insert('v', 'ᚠ');
     letter_mapping.insert('w', 'ᚠ');
     letter_mapping.insert('x', 'ᛋ');
@@ -77,6 +78,8 @@ pub fn get_runes_to_letters_map() -> HashMap<char, char> {
     rune_mapping.insert('ᛅ', 'æ');
     rune_mapping.insert('ᚰ', 'ǫ');
     rune_mapping.insert('ᛕ', 'ᴘ');
+    rune_mapping.insert('ᚽ', 'e');
+    rune_mapping.insert('ᚵ', 'g');
 
     rune_mapping
 }
