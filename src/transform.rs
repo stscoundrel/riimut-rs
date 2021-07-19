@@ -1,34 +1,28 @@
-use std::collections::HashMap;
+use crate::dictionary::Dictionary;
 
-pub fn with_char_to_char_map(content: &str, dictionary: &HashMap<char, char>) -> String {
+pub fn with_dictionary(content: &str, dictionary: &Dictionary) -> String {
     let mut result: String = String::new();
     let characters: Vec<char> = content.chars().collect();
 
     for character in characters {
         let lower_case: char = character.to_lowercase().next().unwrap();
-        if dictionary.contains_key(&lower_case) {
-            result.push(*dictionary.get(&lower_case).unwrap());
-        } else {
-            result.push(character);
+
+        match dictionary {
+            Dictionary::LetterDefinitions(mapping) => {
+                if mapping.contains_key(&lower_case) {
+                    result.push(*mapping.get(&lower_case).unwrap());
+                    continue;
+                }
+            },
+            Dictionary::MultipleLetterDefinitions(mapping) => {
+                if mapping.contains_key(&lower_case) {
+                    result.push_str(*mapping.get(&lower_case).unwrap());
+                    continue;
+                }
+            }
         }
-    }    
 
-    result
-}
-
-// Some runes transform to combination of latin letters, like "ea".
-// As char is invalid type for that, use alternative transform for those runesets.
-pub fn with_char_to_str_map(content: &str, dictionary: &HashMap<char, &'static str>) -> String {
-    let mut result: String = String::new();
-    let characters: Vec<char> = content.chars().collect();
-
-    for character in characters {
-        let lower_case: char = character.to_lowercase().next().unwrap();
-        if dictionary.contains_key(&lower_case) {
-            result.push_str(*dictionary.get(&lower_case).unwrap());
-        } else {
-            result.push(character);
-        }
+        result.push(character);
     }    
 
     result
@@ -45,7 +39,7 @@ mod tests {
         let runemap = younger_futhark::mapping::get_letters_to_runes_map();
         let content = "auk tani karþi kristna";
         let expected = "ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ";
-        let result = with_char_to_char_map(content, &runemap);
+        let result = with_dictionary(content, &runemap);
 
         assert_eq!(result, expected);
     }
@@ -55,7 +49,7 @@ mod tests {
         let runemap = younger_futhark::mapping::get_letters_to_runes_map();
         let content = "AUK tani Karþi kriSTnA";
         let expected = "ᛅᚢᚴ:ᛏᛅᚾᛁ:ᚴᛅᚱᚦᛁ:ᚴᚱᛁᛋᛏᚾᛅ";
-        let result = with_char_to_char_map(content, &runemap);
+        let result = with_dictionary(content, &runemap);
 
         assert_eq!(result, expected);
     }
@@ -65,7 +59,7 @@ mod tests {
         let runemap = futhorc::mapping::get_runes_to_letters_map();
         let content = "ᚪᛒᚳᛞᛖᚠᚷᛠ";
         let expected = "abcdefgea";
-        let result = with_char_to_str_map(content, &runemap);
+        let result = with_dictionary(content, &runemap);
 
         assert_eq!(result, expected);
     }
