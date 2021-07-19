@@ -19,8 +19,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_younger_futhark() {
-        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ";
+        let content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæöøǫþ";
+        let expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᚢᚢᛟᚦ";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);
@@ -28,10 +28,11 @@ mod tests {
 
     #[test]
     fn transforms_runes_to_letters() {
-        let content = "ᚠᚢᚦᚬᚱᚴᚼᚽᚾᚿᛁᛅᛆᛋᛌᛏᛐᛒᛘᛚᛦ:";
-        let expected = "fuþorkhhnniaassttbmlR ";
+        let content = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚻᚾᛁᛃᛇᛈᛉᛊᛋᛏᛒᛖᛗᛚᛜᛝᛟᛞ:";
+        let expected = "fuþarkgwhhnijïpzsstbemlŋŋod ";
         let result = runes_to_letters(content);
 
         assert_eq!(result, expected);
     }
 }
+
