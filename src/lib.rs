@@ -1,5 +1,5 @@
-pub mod dictionary;
-pub mod transform;
+mod dictionary;
+mod transform;
 pub mod younger_futhark;
 pub mod elder_futhark;
 pub mod medieval_futhork;
