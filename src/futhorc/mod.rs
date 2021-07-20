@@ -1,12 +1,38 @@
 pub mod mapping;
 use crate::transform;
 
+/// Transform latin text to runes
+///
+/// 
+/// # Examples
+/// 
+/// ```
+/// use riimut::futhorc;
+/// 
+/// let result = futhorc::letters_to_runes("Then you might just appear");
+/// let expected = "ᛏᚻᛖᚾ:ᚣᚩᚢ:ᛗᛁᚷᚻᛏ:ᛡᚢᛋᛏ:ᚪᛈᛈᛖᚪᚱ";
+/// 
+/// assert_eq!(result, expected);
+/// ```
 pub fn letters_to_runes(content: &str) -> String {
     let letter_map = mapping::get_letters_to_runes_map();
     
     transform::with_dictionary(&content, &letter_map)
 }
 
+/// Transform runes to latin letters
+///
+/// 
+/// # Examples
+/// 
+/// ```
+/// use riimut::futhorc;
+/// 
+/// let result = futhorc::runes_to_letters("ᛏᚻᛖᚾ:ᚣᚩᚢ:ᛗᛁᚷᚻᛏ:ᛡᚢᛋᛏ:ᚪᛈᛈᛖᚪᚱ");
+/// let expected = "then you might just appear";
+/// 
+/// assert_eq!(result, expected);
+/// ```
 pub fn runes_to_letters(content: &str) -> String {
     let rune_map = mapping::get_runes_to_letters_map();
     
