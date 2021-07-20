@@ -1,4 +1,4 @@
-use crate::dictionary::Dictionary;
+use crate::dictionary::{Dictionary, DictionaryMapping};
 
 pub fn with_dictionary(content: &str, dictionary: &Dictionary) -> String {
     let mut result: String = String::new();
@@ -7,15 +7,13 @@ pub fn with_dictionary(content: &str, dictionary: &Dictionary) -> String {
     for character in characters {
         let lower_case: char = character.to_lowercase().next().unwrap();
 
-        match dictionary {
-            Dictionary::LetterDefinitions(mapping) => {
-                if mapping.contains_key(&lower_case) {
+        if dictionary.letters.contains(&lower_case) {
+            match &dictionary.mapping {
+                DictionaryMapping::LetterDefinitions(mapping) => {
                     result.push(*mapping.get(&lower_case).unwrap());
                     continue;
                 }
-            },
-            Dictionary::MultipleLetterDefinitions(mapping) => {
-                if mapping.contains_key(&lower_case) {
+                DictionaryMapping::MultipleLetterDefinitions(mapping) => {
                     result.push_str(*mapping.get(&lower_case).unwrap());
                     continue;
                 }

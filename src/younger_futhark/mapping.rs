@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use crate::dictionary::Dictionary;
+use crate::dictionary::{Dictionary, DictionaryMapping};
 
 pub fn get_runes_list() -> Vec<char> {
     vec!('ᚠ','ᚢ','ᚦ','ᚬ','ᚱ','ᚴ','ᚼ','ᚽ','ᚾ','ᚿ','ᛁ','ᛅ','ᛆ','ᛋ','ᛌ', 'ᛏ','ᛐ','ᛒ','ᛘ', 'ᛚ','ᛦ',':')
@@ -50,7 +50,10 @@ pub fn get_letters_to_runes_map() -> Dictionary {
     letter_mapping.insert('ǫ', 'ᚢ');
     letter_mapping.insert(' ', ':');
 
-    Dictionary::LetterDefinitions(letter_mapping)
+    Dictionary::new(
+        letter_mapping.keys().copied().collect(),
+        DictionaryMapping::LetterDefinitions(letter_mapping)
+    )
 }
 
 pub fn get_runes_to_letters_map() -> Dictionary {
@@ -79,5 +82,8 @@ pub fn get_runes_to_letters_map() -> Dictionary {
     rune_mapping.insert('ᛦ', 'R');
     rune_mapping.insert(':', ' ');
 
-    Dictionary::LetterDefinitions(rune_mapping)
+    Dictionary::new(
+        rune_mapping.keys().copied().collect(),
+        DictionaryMapping::LetterDefinitions(rune_mapping)
+    )
 }
