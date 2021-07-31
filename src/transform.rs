@@ -2,9 +2,8 @@ use crate::dictionary::DictionaryMapping;
 
 pub fn with_dictionary(content: &str, dictionary: &DictionaryMapping) -> String {
     let mut result: String = String::new();
-    let characters: Vec<char> = content.chars().collect();
 
-    for character in characters {
+    for character in content.chars() {
         let lower_case: char = character.to_lowercase().next().unwrap();
        
         match &dictionary {
