@@ -1,7 +1,7 @@
 use std::collections::HashMap;
-use crate::dictionary::{Dictionary, DictionaryMapping};
+use crate::dictionary::DictionaryMapping;
 
-pub fn get_letters_to_runes_map() -> Dictionary {
+pub fn get_letters_to_runes_map() -> DictionaryMapping {
     let mut letter_mapping = HashMap::new();
     
     letter_mapping.insert('a', 'ᚪ');
@@ -50,13 +50,11 @@ pub fn get_letters_to_runes_map() -> Dictionary {
     letter_mapping.insert('þ', 'ᚦ');
     letter_mapping.insert(' ', ':');
 
-    Dictionary::new(
-        letter_mapping.keys().copied().collect(),
-        DictionaryMapping::LetterDefinitions(letter_mapping)
-    )
+    
+    DictionaryMapping::LetterDefinitions(letter_mapping)
 }
 
-pub fn get_runes_to_letters_map() -> Dictionary {
+pub fn get_runes_to_letters_map() -> DictionaryMapping {
     let mut rune_mapping = HashMap::new();
 
     rune_mapping.insert('ᚠ', "f");
@@ -91,8 +89,5 @@ pub fn get_runes_to_letters_map() -> Dictionary {
     rune_mapping.insert(':', " ");
     rune_mapping.insert('ᛠ', "ea");
 
-    Dictionary::new(
-        rune_mapping.keys().copied().collect(),
-        DictionaryMapping::MultipleLetterDefinitions(rune_mapping)
-    )
+    DictionaryMapping::MultipleLetterDefinitions(rune_mapping)
 }

@@ -1,26 +1,28 @@
-use crate::dictionary::{Dictionary, DictionaryMapping};
+use crate::dictionary::DictionaryMapping;
 
-pub fn with_dictionary(content: &str, dictionary: &Dictionary) -> String {
+pub fn with_dictionary(content: &str, dictionary: &DictionaryMapping) -> String {
     let mut result: String = String::new();
     let characters: Vec<char> = content.chars().collect();
 
     for character in characters {
         let lower_case: char = character.to_lowercase().next().unwrap();
-
-        if dictionary.letters.contains(&lower_case) {
-            match &dictionary.mapping {
-                DictionaryMapping::LetterDefinitions(mapping) => {
-                    result.push(*mapping.get(&lower_case).unwrap());
-                    continue;
+       
+        match &dictionary {
+            DictionaryMapping::LetterDefinitions(mapping) => {
+                if let Some(found_character) = mapping.get(&lower_case) {
+                    result.push(*found_character);
+                } else {
+                    result.push(character);
                 }
-                DictionaryMapping::MultipleLetterDefinitions(mapping) => {
-                    result.push_str(*mapping.get(&lower_case).unwrap());
-                    continue;
+            }
+            DictionaryMapping::MultipleLetterDefinitions(mapping) => {
+                if let Some(found_string) = mapping.get(&lower_case) {
+                    result.push_str(found_string);
+                } else {
+                    result.push(character);
                 }
             }
         }
-
-        result.push(character);
     }    
 
     result
