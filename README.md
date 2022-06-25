@@ -15,7 +15,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-riimut = "1.0.0"
+riimut = "1.1.0"
 ```
 
 ### Usage
