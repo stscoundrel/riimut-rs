@@ -59,6 +59,22 @@ println!(latin_text); // "auk tani karþi kristna"
 
 ```
 
+Younger Futhark comes with long branch (Danish) and short twig (Norwegian & Swedish) variants. The default `letters_to_runes` uses long branch.
+
+```rust
+use riimut::younger_futhark;
+
+let letters = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ";
+
+// Comes with named functions per style.
+let long_branch = younger_futhark.letters_to_long_branch_runes(letters);
+let short_twig = younger_futhark.letters_to_short_twig_runes(letters);
+
+println!(long_branch); // ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ
+println!(short_twig);  // ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ
+
+```
+
 #### What's in the name?
 
 "Riimut" is the Finnish word for "runes". Most rune related cratenames were already taken, so just added some Finnish flavor to it.
