@@ -1,0 +1,16 @@
+name: Rust - Publish
+
+on: 
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo build --release --all-features
+      - run: cargo publish --token ${{ secrets.CARGO_TOKEN }}
