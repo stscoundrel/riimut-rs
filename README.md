@@ -2,12 +2,13 @@
 
 Transform latin letters to runes &amp; vice versa.
 
-Includes transformers for four main runic alphabets:
+Includes transformers for four main runic alphabets and common variations:
 
 - Elder Futhark
 - Younger Futhark
 - Medieval Futhork
 - Futhorc (Anglo-Frisian runes)
+- Staveless Futhark
 
 ### Install
 
@@ -22,11 +23,12 @@ riimut = "1.1.0"
 
 Text to runes:
 ```rust
-// Ships four dialects in separate modules.
+// Ships five dialects in separate modules.
 use riimut::younger_futhark;
 use riimut::elder_futhark;
 use riimut::medieval_futhork;
 use riimut::futhorc;
+use riimut::staveless_futhark;
 
 // From Old Groms runestone.
 let younger_futhark = younger_futhark::letters_to_runes("auk tani karþi kristna");
@@ -43,6 +45,10 @@ println!(medieval_futhork); // "ᚠᛆᚦᚽᚱ:ᚢᚮᚱ:ᛋᚮᛘ:ᛆᛋᛏ:�
 // From 8th century Franks Casket, in late West Saxon.
 let futhorc = futhorc::letters_to_runes("fisc.flodu.ahofonferg | enberig |");
 println!(futhorc); // "ᚠᛁᛋᚳ.ᚠᛚᚩᛞᚢ.ᚪᚻᚩᚠᚩᚾᚠᛖᚱᚷ:|:ᛖᚾᛒᛖᚱᛁᚷ:|"
+
+// From Old Norse text in Hög runestone.
+let staveless = staveless_futhark::letters_to_runes("kuþniutr þru sun lit rita stin þina ak bru kirþi aftiʀ bruþr sina asbiurn ak at kuþlaf");
+println!(futhorc); // ᛍ╮ו⸜ᛁ╮⸍◟:ו◟╮:╵╮⸜:⸌ᛁ⸍:◟ᛁ⸍⸝:╵⸍ᛁ⸜:וᛁ⸜⸝:⸝ᛍ:ˏ◟╮:ᛍᛁ◟וᛁ:⸝ᛙ⸍ᛁʀ:ˏ◟╮ו◟:╵ᛁ⸜⸝:⸝╵ˏᛁ╮◟⸜:⸝ᛍ:⸝⸍:ᛍ╮ו⸌⸝ᛙ
 
 ```
 
