@@ -45,8 +45,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_elder_futhark() {
-        let content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᚢᚢᛟᚦ";
+        let content = "aábcdðeéfghiíjklmnŋoópqrstþuúvwxyýzåäæœöøǫþ";
+        let expected = "ᚨᚨᛒᚲᛞᚦᛖᛖᚠᚷᚻᛁᛁᛃᚲᛚᛗᚾᛜᛟᛟᛈᚲᚱᛋᛏᚦᚢᚢᚹᚹᛋᛁᛁᛉᛟᛇᛇᛟᚢᚢᛟᚦ";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);

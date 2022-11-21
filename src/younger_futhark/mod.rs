@@ -81,8 +81,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_younger_futhark_default_function() {
-        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ";
+        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ";
+        let expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);
@@ -90,8 +90,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_long_branch_runes() {
-        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚦ";
+        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ";
+        let expected = "ᛅᛅᛒᛋᛏᚦᛁᛁᚠᚴᚼᛁᛁᛁᚴᛚᛘᚾᚢᚢᛒᚴᚱᛋᛏᚦᚢᚢᚢᚢᛋᚢᚢᛋᚢᛅᛅᚢᚢᚢᚢᚦ";
         let result = letters_to_long_branch_runes(content);
 
         assert_eq!(result, expected);
@@ -99,8 +99,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_short_twig_runes() {
-        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæöøǫþ";
-        let expected = "ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚦ";
+        let content = "aábcdðeéfghiíjklmnoópqrstþuúvwxyýzåäæœöøǫþ";
+        let expected = "ᛆᛆᛒᛌᛐᚦᛁᛁᚠᚴᚽᛁᛁᛁᚴᛚᛘᚿᚢᚢᛒᚴᚱᛌᛐᚦᚢᚢᚢᚢᛌᚢᚢᛌᚢᛆᛆᚢᚢᚢᚢᚦ";
         let result = letters_to_short_twig_runes(content);
 
         assert_eq!(result, expected);

@@ -45,8 +45,8 @@ mod tests {
 
     #[test]
     fn transforms_letters_to_staveless_futhark() {
-        let content = "aábcdðeéfghiíjklmnoópqrRstþuúvwxyýzåäæöøǫþ ";
-        let expected = "⸝⸝ˏ╵⸍וᛁᛁᛙᛍᚽᛁᛁᛁᛍ⸌⠃⸜ˎˎˏᛍ◟◟╵⸍ו╮╮╮╮╵╮╮╵ˎ⸝⸝ˎˎˎו:";
+        let content = "aábcdðeéfghiíjklmnoópqrRstþuúvwxyýzåäæœöøǫþ ";
+        let expected = "⸝⸝ˏ╵⸍וᛁᛁᛙᛍᚽᛁᛁᛁᛍ⸌⠃⸜ˎˎˏᛍ◟◟╵⸍ו╮╮╮╮╵╮╮╵ˎ⸝⸝ˎˎˎˎו:";
         let result = letters_to_runes(content);
 
         assert_eq!(result, expected);
