@@ -45,6 +45,7 @@ pub fn get_letters_to_long_branch_runes_map() -> DictionaryMapping {
     letter_mapping.insert('å', 'ᚢ');
     letter_mapping.insert('ä', 'ᛅ');
     letter_mapping.insert('æ', 'ᛅ');
+    letter_mapping.insert('œ', 'ᚢ');
     letter_mapping.insert('ö', 'ᚢ');
     letter_mapping.insert('ø', 'ᚢ');
     letter_mapping.insert('ǫ', 'ᚢ');
@@ -93,6 +94,7 @@ pub fn get_letters_to_short_twig_runes_map() -> DictionaryMapping {
     letter_mapping.insert('å', 'ᚢ');
     letter_mapping.insert('ä', 'ᛆ');
     letter_mapping.insert('æ', 'ᛆ');
+    letter_mapping.insert('œ', 'ᚢ');
     letter_mapping.insert('ö', 'ᚢ');
     letter_mapping.insert('ø', 'ᚢ');
     letter_mapping.insert('ǫ', 'ᚢ');
