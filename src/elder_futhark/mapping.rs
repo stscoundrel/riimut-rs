@@ -42,6 +42,7 @@ pub fn get_letters_to_runes_map() -> DictionaryMapping {
     letter_mapping.insert('å', 'ᛟ');
     letter_mapping.insert('ä', 'ᛇ');
     letter_mapping.insert('æ', 'ᛇ');
+    letter_mapping.insert('œ', 'ᛟ');
     letter_mapping.insert('ö', 'ᚢ');
     letter_mapping.insert('ø', 'ᚢ');
     letter_mapping.insert('þ', 'ᚦ');
