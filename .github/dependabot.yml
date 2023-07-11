@@ -5,9 +5,17 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 25
+    groups:
+       dependencies:
+          patterns:
+            - "*" # Match all dependencies to one PR.
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: weekly
     open-pull-requests-limit: 25
+    groups:
+       ci-dependencies:
+          patterns:
+            - "*" # Match all dependencies to one PR.
